@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Driver.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Driver.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span>com.wisefull.common;
+
+<span class="s0">import </span>io.github.bonigarcia.wdm.WebDriverManager;
+<span class="s0">import </span>org.openqa.selenium.WebDriver;
+<span class="s0">import </span>org.openqa.selenium.chrome.ChromeDriver;
+
+<span class="s0">public class </span>Driver {
+    <span class="s0">public static </span>WebDriver driver;
+
+    <span class="s0">public static </span>WebDriver getDriver(){
+        <span class="s0">if</span>(driver==<span class="s0">null</span>){
+            setUpDriver();
+        }
+        <span class="s0">return </span>driver;
+
+    }
+    <span class="s0">public static void </span>setUpDriver() {
+        <span class="s0">if </span>(driver == <span class="s0">null</span>) {
+            WebDriverManager.chromedriver().setup();
+            driver = <span class="s0">new </span>ChromeDriver();
+        }
+    }
+    <span class="s0">public static void </span>closeDriver(){
+        <span class="s0">if</span>(driver !=<span class="s0">null</span>){
+            driver.quit();;
+            driver=<span class="s0">null</span>;
+        }
+    }
+
+}
+</pre>
+</body>
+</html>
